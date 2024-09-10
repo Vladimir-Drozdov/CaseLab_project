@@ -1,0 +1,20 @@
+version: "3"
+services:
+  directus:
+    image: directus/directus:11.0.2
+    ports:
+      - 8055:8055
+    volumes:
+      - ./database:/directus/database
+      - ./uploads:/directus/uploads
+      - ./extensions:/directus/extensions
+    environment:
+      CORS_ENABLED: true
+      CORS_ORIGIN: "http://localhost:3000"
+      SECRET: "secure-value"
+      ADMIN_EMAIL: "vin2000drozdov@yandex.ru"
+      ADMIN_PASSWORD: "wg346hdf"
+      DB_CLIENT: "sqlite3"
+      DB_FILENAME: "/directus/database/data.db"
+      WEBSOCKETS_ENABLED: "true"
+ 
